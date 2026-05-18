@@ -99,7 +99,7 @@ img{
 a{
 
     text-decoration:none;
-    color:inherit;
+    color:rgb(144, 144, 0);
 
 }
 
@@ -383,6 +383,7 @@ ul{
     display:flex;
     align-items:center;
     justify-content:space-between;
+    color: #99c700;
 
 }
 
@@ -412,7 +413,7 @@ ul{
 
     font-weight:600;
 
-    color:var(--white-color);
+    color: #9f7200;
 
     transition:var(--transition);
 
