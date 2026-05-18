@@ -1,8 +1,30 @@
 /* ========================= */
+/* SPLASH SCREEN */
+/* ========================= */
+
+document.body.style.overflow = "hidden";
+
+window.addEventListener("load", () => {
+
+    const splash =
+        document.querySelector(".splash-screen");
+
+    setTimeout(() => {
+
+        splash.classList.add("hide");
+
+        document.body.style.overflow = "auto";
+
+    }, 3500);
+
+});
+
+/* ========================= */
 /* NAVBAR SCROLL EFFECT */
 /* ========================= */
 
-const header = document.querySelector(".header");
+const header =
+    document.querySelector(".header");
 
 window.addEventListener("scroll", () => {
 
@@ -22,23 +44,31 @@ window.addEventListener("scroll", () => {
 /* MOBILE MENU */
 /* ========================= */
 
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
+const hamburger =
+    document.querySelector(".hamburger");
+
+const navLinks =
+    document.querySelector(".nav-links");
 
 hamburger.addEventListener("click", () => {
 
     navLinks.classList.toggle("active");
+
     hamburger.classList.toggle("active");
 
 });
 
-/* CLOSE MOBILE MENU WHEN CLICKING LINKS */
+/* ========================= */
+/* CLOSE MOBILE MENU */
+/* ========================= */
 
-document.querySelectorAll(".nav-link").forEach(link => {
+document.querySelectorAll(".nav-link")
+.forEach(link => {
 
     link.addEventListener("click", () => {
 
         navLinks.classList.remove("active");
+
         hamburger.classList.remove("active");
 
     });
@@ -49,8 +79,11 @@ document.querySelectorAll(".nav-link").forEach(link => {
 /* ACTIVE NAV LINK */
 /* ========================= */
 
-const sections = document.querySelectorAll("section");
-const navItems = document.querySelectorAll(".nav-link");
+const sections =
+    document.querySelectorAll("section");
+
+const navItems =
+    document.querySelectorAll(".nav-link");
 
 window.addEventListener("scroll", () => {
 
@@ -58,12 +91,16 @@ window.addEventListener("scroll", () => {
 
     sections.forEach(section => {
 
-        const sectionTop = section.offsetTop - 150;
-        const sectionHeight = section.clientHeight;
+        const sectionTop =
+            section.offsetTop - 150;
+
+        const sectionHeight =
+            section.clientHeight;
 
         if(scrollY >= sectionTop){
 
-            current = section.getAttribute("id");
+            current =
+                section.getAttribute("id");
 
         }
 
@@ -73,7 +110,11 @@ window.addEventListener("scroll", () => {
 
         link.classList.remove("active");
 
-        if(link.getAttribute("href").includes(current)){
+        if(
+            link
+            .getAttribute("href")
+            .includes(current)
+        ){
 
             link.classList.add("active");
 
@@ -87,17 +128,25 @@ window.addEventListener("scroll", () => {
 /* SCROLL REVEAL ANIMATION */
 /* ========================= */
 
-const reveals = document.querySelectorAll(".reveal");
+const reveals =
+    document.querySelectorAll(".reveal");
 
 const revealOnScroll = () => {
 
     reveals.forEach(element => {
 
-        const windowHeight = window.innerHeight;
-        const revealTop = element.getBoundingClientRect().top;
+        const windowHeight =
+            window.innerHeight;
+
+        const revealTop =
+            element.getBoundingClientRect().top;
+
         const revealPoint = 100;
 
-        if(revealTop < windowHeight - revealPoint){
+        if(
+            revealTop <
+            windowHeight - revealPoint
+        ){
 
             element.classList.add("active");
 
@@ -107,14 +156,22 @@ const revealOnScroll = () => {
 
 };
 
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+window.addEventListener(
+    "scroll",
+    revealOnScroll
+);
+
+window.addEventListener(
+    "load",
+    revealOnScroll
+);
 
 /* ========================= */
 /* SCROLL PROGRESS BAR */
 /* ========================= */
 
-const progressBar = document.querySelector(".scroll-progress");
+const progressBar =
+    document.querySelector(".scroll-progress");
 
 window.addEventListener("scroll", () => {
 
@@ -125,7 +182,8 @@ window.addEventListener("scroll", () => {
     const progress =
         (window.scrollY / totalHeight) * 100;
 
-    progressBar.style.width = `${progress}%`;
+    progressBar.style.width =
+        `${progress}%`;
 
 });
 
@@ -133,42 +191,56 @@ window.addEventListener("scroll", () => {
 /* CUSTOM CURSOR */
 /* ========================= */
 
-const cursor = document.querySelector(".custom-cursor");
-
-/* DISABLE CURSOR ON MOBILE */
+const cursor =
+    document.querySelector(".custom-cursor");
 
 if(window.innerWidth > 768){
 
-    document.addEventListener("mousemove", (e) => {
+    document.addEventListener(
+        "mousemove",
+        (e) => {
 
-        cursor.style.left = e.clientX + "px";
-        cursor.style.top = e.clientY + "px";
+            cursor.style.left =
+                e.clientX + "px";
 
-    });
+            cursor.style.top =
+                e.clientY + "px";
+
+        }
+    );
 
 }
 
+/* ========================= */
 /* CURSOR HOVER EFFECT */
+/* ========================= */
 
-const hoverItems = document.querySelectorAll(
-    "button, a, .product-card, .info-card"
-);
+const hoverItems =
+    document.querySelectorAll(
+        "button, a, .product-card, .info-card"
+    );
 
 hoverItems.forEach(item => {
 
-    item.addEventListener("mouseenter", () => {
+    item.addEventListener(
+        "mouseenter",
+        () => {
 
-        cursor.style.transform =
-            "translate(-50%, -50%) scale(1.8)";
+            cursor.style.transform =
+                "translate(-50%, -50%) scale(1.8)";
 
-    });
+        }
+    );
 
-    item.addEventListener("mouseleave", () => {
+    item.addEventListener(
+        "mouseleave",
+        () => {
 
-        cursor.style.transform =
-            "translate(-50%, -50%) scale(1)";
+            cursor.style.transform =
+                "translate(-50%, -50%) scale(1)";
 
-    });
+        }
+    );
 
 });
 
@@ -176,24 +248,37 @@ hoverItems.forEach(item => {
 /* PRODUCT CARD 3D TILT */
 /* ========================= */
 
-const productCards = document.querySelectorAll(".product-card");
+const productCards =
+    document.querySelectorAll(".product-card");
 
 productCards.forEach(card => {
 
-    card.addEventListener("mousemove", (e) => {
+    card.addEventListener(
+        "mousemove",
+        (e) => {
 
-        const rect = card.getBoundingClientRect();
+            const rect =
+                card.getBoundingClientRect();
 
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+            const x =
+                e.clientX - rect.left;
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+            const y =
+                e.clientY - rect.top;
 
-        const rotateX = ((y - centerY) / 20);
-        const rotateY = ((centerX - x) / 20);
+            const centerX =
+                rect.width / 2;
 
-        card.style.transform =
+            const centerY =
+                rect.height / 2;
+
+            const rotateX =
+                ((y - centerY) / 20);
+
+            const rotateY =
+                ((centerX - x) / 20);
+
+            card.style.transform =
             `
             perspective(1000px)
             rotateX(${rotateX}deg)
@@ -201,11 +286,14 @@ productCards.forEach(card => {
             scale(1.04)
             `;
 
-    });
+        }
+    );
 
-    card.addEventListener("mouseleave", () => {
+    card.addEventListener(
+        "mouseleave",
+        () => {
 
-        card.style.transform =
+            card.style.transform =
             `
             perspective(1000px)
             rotateX(0deg)
@@ -213,62 +301,85 @@ productCards.forEach(card => {
             scale(1)
             `;
 
-    });
+        }
+    );
 
 });
 
 /* ========================= */
-/* HERO IMAGE PARALLAX */
+/* HERO PARALLAX EFFECT */
 /* ========================= */
 
-const heroImage = document.querySelector(".image-wrapper");
+const heroImage =
+    document.querySelector(".image-wrapper");
 
-document.addEventListener("mousemove", (e) => {
+document.addEventListener(
+    "mousemove",
+    (e) => {
 
-    const x = (window.innerWidth / 2 - e.pageX) / 40;
-    const y = (window.innerHeight / 2 - e.pageY) / 40;
+        if(heroImage){
 
-    heroImage.style.transform =
-        `translate(${x}px, ${y}px)`;
+            const x =
+                (window.innerWidth / 2 - e.pageX) / 40;
 
-});
+            const y =
+                (window.innerHeight / 2 - e.pageY) / 40;
+
+            heroImage.style.transform =
+                `translate(${x}px, ${y}px)`;
+
+        }
+
+    }
+);
 
 /* ========================= */
 /* BUTTON RIPPLE EFFECT */
 /* ========================= */
 
-const buttons = document.querySelectorAll(
-    ".primary-btn, .secondary-btn, .add-cart-btn, .checkout-btn"
-);
+const buttons =
+    document.querySelectorAll(
+        ".primary-btn, .secondary-btn, .add-cart-btn, .checkout-btn"
+    );
 
 buttons.forEach(button => {
 
-    button.addEventListener("click", function(e){
+    button.addEventListener(
+        "click",
+        function(e){
 
-        let x = e.clientX - e.target.offsetLeft;
-        let y = e.clientY - e.target.offsetTop;
+            let x =
+                e.clientX - e.target.offsetLeft;
 
-        let ripple = document.createElement("span");
+            let y =
+                e.clientY - e.target.offsetTop;
 
-        ripple.style.left = `${x}px`;
-        ripple.style.top = `${y}px`;
+            let ripple =
+                document.createElement("span");
 
-        ripple.classList.add("ripple");
+            ripple.style.left =
+                `${x}px`;
 
-        this.appendChild(ripple);
+            ripple.style.top =
+                `${y}px`;
 
-        setTimeout(() => {
+            ripple.classList.add("ripple");
 
-            ripple.remove();
+            this.appendChild(ripple);
 
-        }, 600);
+            setTimeout(() => {
 
-    });
+                ripple.remove();
+
+            }, 600);
+
+        }
+    );
 
 });
 
 /* ========================= */
-/* FAKE ADD TO CART */
+/* ADD TO CART */
 /* ========================= */
 
 const addCartButtons =
@@ -312,9 +423,14 @@ const quantityControls =
 
 quantityControls.forEach(control => {
 
-    const minusBtn = control.children[0];
-    const quantityText = control.children[1];
-    const plusBtn = control.children[2];
+    const minusBtn =
+        control.children[0];
+
+    const quantityText =
+        control.children[1];
+
+    const plusBtn =
+        control.children[2];
 
     let quantity = 1;
 
@@ -369,7 +485,8 @@ filterButtons.forEach(button => {
 
 function createParticles(){
 
-    const hero = document.querySelector(".hero");
+    const hero =
+        document.querySelector(".hero");
 
     for(let i = 0; i < 20; i++){
 
@@ -402,19 +519,19 @@ function createParticles(){
 createParticles();
 
 /* ========================= */
-/* PARTICLE ANIMATION STYLE */
+/* DYNAMIC STYLES */
 /* ========================= */
 
 const particleStyle =
 `
 .particle{
 
-    position: absolute;
-    bottom: -20px;
-    background: rgba(255,255,255,0.4);
-    border-radius: 50%;
-    animation: particleMove linear infinite;
-    pointer-events: none;
+    position:absolute;
+    bottom:-20px;
+    background:rgba(255,255,255,0.4);
+    border-radius:50%;
+    animation:particleMove linear infinite;
+    pointer-events:none;
 
 }
 
@@ -426,13 +543,13 @@ const particleStyle =
             translateY(0)
             rotate(0deg);
 
-        opacity: 0;
+        opacity:0;
 
     }
 
     10%{
 
-        opacity: 1;
+        opacity:1;
 
     }
 
@@ -442,7 +559,7 @@ const particleStyle =
             translateY(-100vh)
             rotate(720deg);
 
-        opacity: 0;
+        opacity:0;
 
     }
 
@@ -450,14 +567,14 @@ const particleStyle =
 
 .ripple{
 
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: rgba(255,255,255,0.5);
-    border-radius: 50%;
-    transform: scale(0);
-    animation: rippleEffect 0.6s linear;
-    pointer-events: none;
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:rgba(255,255,255,0.5);
+    border-radius:50%;
+    transform:scale(0);
+    animation:rippleEffect 0.6s linear;
+    pointer-events:none;
 
 }
 
@@ -465,76 +582,80 @@ const particleStyle =
 
     to{
 
-        transform: scale(15);
-        opacity: 0;
+        transform:scale(15);
+        opacity:0;
 
     }
 
 }
 `;
 
-const styleSheet = document.createElement("style");
-styleSheet.innerText = particleStyle;
+const styleSheet =
+    document.createElement("style");
+
+styleSheet.innerText =
+    particleStyle;
+
 document.head.appendChild(styleSheet);
 
 /* ========================= */
-/* SMOOTH PAGE LOADING */
-/* ========================= */
-
-window.addEventListener("load", () => {
-
-    document.body.style.opacity = "1";
-
-});
-
-/* ========================= */
-/* PRELOADER EFFECT */
-/* ========================= */
-
-document.body.style.opacity = "0";
-document.body.style.transition =
-    "opacity 0.8s ease";
-
-/* ========================= */
-/* INPUT FOCUS ANIMATION */
+/* INPUT FOCUS EFFECT */
 /* ========================= */
 
 const inputs =
-    document.querySelectorAll("input, textarea");
+    document.querySelectorAll(
+        "input, textarea"
+    );
 
 inputs.forEach(input => {
 
-    input.addEventListener("focus", () => {
+    input.addEventListener(
+        "focus",
+        () => {
 
-        input.style.transform = "scale(1.02)";
-        input.style.boxShadow =
-            "0 0 20px rgba(212,160,23,0.3)";
+            input.style.transform =
+                "scale(1.02)";
 
-    });
+            input.style.boxShadow =
+                "0 0 20px rgba(212,160,23,0.3)";
 
-    input.addEventListener("blur", () => {
+        }
+    );
 
-        input.style.transform = "scale(1)";
-        input.style.boxShadow = "none";
+    input.addEventListener(
+        "blur",
+        () => {
 
-    });
+            input.style.transform =
+                "scale(1)";
+
+            input.style.boxShadow =
+                "none";
+
+        }
+    );
 
 });
 
 /* ========================= */
-/* NEWSLETTER FORM */
+/* NEWSLETTER */
 /* ========================= */
 
 const newsletterForm =
     document.querySelector(".newsletter");
 
-newsletterForm.addEventListener("submit", (e) => {
+newsletterForm.addEventListener(
+    "submit",
+    (e) => {
 
-    e.preventDefault();
+        e.preventDefault();
 
-    alert("Thank you for subscribing!");
+        alert(
+            "Thank you for subscribing!"
+        );
 
-});
+    }
+);
 
 /* ========================= */
 /* CONTACT FORM */
@@ -543,29 +664,38 @@ newsletterForm.addEventListener("submit", (e) => {
 const contactForm =
     document.querySelector(".support-form form");
 
-contactForm.addEventListener("submit", (e) => {
+contactForm.addEventListener(
+    "submit",
+    (e) => {
 
-    e.preventDefault();
+        e.preventDefault();
 
-    alert("Message Sent Successfully!");
+        alert(
+            "Message Sent Successfully!"
+        );
 
-    contactForm.reset();
+        contactForm.reset();
 
-});
+    }
+);
 
 /* ========================= */
-/* IMAGE LAZY ANIMATION */
+/* IMAGE LOAD EFFECT */
 /* ========================= */
 
-const images = document.querySelectorAll("img");
+const images =
+    document.querySelectorAll("img");
 
 images.forEach(img => {
 
-    img.addEventListener("load", () => {
+    img.addEventListener(
+        "load",
+        () => {
 
-        img.style.opacity = "1";
+            img.style.opacity = "1";
 
-    });
+        }
+    );
 
 });
 
@@ -573,19 +703,22 @@ images.forEach(img => {
 /* WINDOW RESIZE */
 /* ========================= */
 
-window.addEventListener("resize", () => {
+window.addEventListener(
+    "resize",
+    () => {
 
-    if(window.innerWidth < 768){
+        if(window.innerWidth < 768){
 
-        cursor.style.display = "none";
+            cursor.style.display = "none";
 
-    }else{
+        }else{
 
-        cursor.style.display = "block";
+            cursor.style.display = "block";
+
+        }
 
     }
-
-});
+);
 
 /* ========================= */
 /* CONSOLE MESSAGE */
